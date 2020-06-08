@@ -1,0 +1,53 @@
+body{
+    background: linear-gradient(to right, white, black);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}   
+
+.center{
+    margin: auto;
+    width: 60%;
+    border-style: solid;
+    padding: 10px;
+}
+
+div{
+    overflow: hidden;
+}
+
+.left{
+    margin-right: 30%;
+}
+
+div.inline{ 
+    position: relative;
+    float:left; 
+}
+
+.writing-style{
+    font-size: 200%;
+}
+
+div.block{
+    position: relative;
+}
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button.start{
+    background-color: green; 
+}
+
+.button.stop{
+    background-color: red; 
+}

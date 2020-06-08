@@ -1,0 +1,21 @@
+<form method="GET" action="/">
+    <div class="inline left">
+        <p class="writing-style">Status: 
+        <%if(information.status=="ON"){%>
+            <span style="color: green" id="status" ><%=information.status%></span>
+        <%}%>
+        <%if(information.status=="OFF"){%>
+            <span style="color: red" id="status"><%=information.status%></span>
+        <%}%>
+        </p>
+    </div>
+    <div class="inline">
+        <p class="writing-style">Actual temperature: <span id="temperature" name="temperature"><%=information.temperature%></span> &#8451;</p>
+    </div>
+ 
+    <div class="inline left">
+        <button onclick="Start()" class="button start" id="button-start">Start</button>
+        <button onclick="Stop()" class="button stop" id="button-stop">Stop</button>
+        <span id="wait-to-start"></span>
+    </div>  
+</form>
