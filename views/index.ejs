@@ -1,21 +1,36 @@
-<form method="GET" action="/">
+
+<div class="inline left">
+    <p class="writing-style">Status: 
+    <%if(information.status=="ON"){%>
+        <span style="color: green" id="status" ><%=information.status%></span>
+    <%}%>
+    <%if(information.status=="OFF"){%>
+        <span style="color: red" id="status"><%=information.status%></span>
+    <%}%>
+    </p>
+    <%if(information.isBurning=="True"){%>
+    <img src="images/flame.gif" alt="flame gif"/>
+    <%}%>
+</div>
+<div class="inline">
+    <p class="writing-style">Actual temperature: <span id="temperature" name="temperature"><%=information.temperature%></span> &#8451;</p>
+</div>
+<div class="inline">
+    <%if(information.target!=0 ){%>
+    <p class="writing-style">Desired temperature: <%=information.target%> &#8451; </p>
+    <%}%>
+</div>
     <div class="inline left">
-        <p class="writing-style">Status: 
-        <%if(information.status=="ON"){%>
-            <span style="color: green" id="status" ><%=information.status%></span>
-        <%}%>
-        <%if(information.status=="OFF"){%>
-            <span style="color: red" id="status"><%=information.status%></span>
-        <%}%>
-        </p>
-    </div>
-    <div class="inline">
-        <p class="writing-style">Actual temperature: <span id="temperature" name="temperature"><%=information.temperature%></span> &#8451;</p>
-    </div>
- 
-    <div class="inline left">
-        <button onclick="Start()" class="button start" id="button-start">Start</button>
-        <button onclick="Stop()" class="button stop" id="button-stop">Stop</button>
-        <span id="wait-to-start"></span>
+        <form action="/" method="POST">
+            <label for="desired_temperature">Desired temperature:</label>
+            <input type="number" name="desired_temperature" value="20" min="20" max="30">
+            <input type="submit" onclick="Start()" class="button start" id="button_start" name="action" value="Start">
+            <input type="submit" onclick="Stop()" class="button stop" id="button_stop" name="action" value="Stop">
+          </form>
+          <%if(information.isReady=="yes"){%>
+            <span style="color:green;">Command sent!</span>
+            <%}%>
+            <%if(information.isReady=="no"){%>
+                <span style="color:red;">Not ready yet!</span>
+                <%}%>
     </div>  
-</form>

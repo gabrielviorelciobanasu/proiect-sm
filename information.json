@@ -1,1 +1,1 @@
-{"status": "ON", "actual_temperature":"21"}
+{"status": "OFF", "actual_temperature":"21", "target": "5", "isBurning":"False"}
