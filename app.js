@@ -19,7 +19,10 @@ app.get('/', (req, res) => {
   fs.readFile('information.json', (err, data) => {
 		if (err) console.log(err);
         var info = JSON.parse(data);
-        res.render('index', {information: {status: info.status, temperature:info.actual_temperature, target: info.target, isBurning: info.isBurning}});   
+	console.log("/")
+	console.log(info.status,info.actual_temperature,info.target,info.isBurning)   
+        res.render('index', {information: {status: info.status, temperature:info.actual_temperature, target: info.target, isBurning: info.isBurning}});
+	
   });
 });
 
@@ -48,6 +51,10 @@ function Decrement()
     clearInterval(timer);
     ready="yes";
   }
+  if(count%3==0)
+  {
+   
+  }
   console.log(count);
 }
 
@@ -61,8 +68,8 @@ app.post('/', (req, res) => {
   
   var con = mysql.createConnection({
     host: "localhost",
-    user: "root",
-    password: "gabi",
+    user: "pi",
+    password: "",
     database: "sm"
   });
   if(count == 15 && ready == "yes")
@@ -103,6 +110,8 @@ app.post('/', (req, res) => {
   fs.readFile('information.json', (err, data) => {
 		if (err) console.log(err);
         var info = JSON.parse(data);
+	console.log("fs")
+	console.log(info.status,info.actual_temperature,info.target,info.isBurning)   
         res.render('index', {information: {status: info.status, temperature:info.actual_temperature, isReady: ready, target: info.target, isBurning: info.isBurning}});   
   });
 });

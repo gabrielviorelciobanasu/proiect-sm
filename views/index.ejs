@@ -1,29 +1,31 @@
-
 <div class="inline left">
     <p class="writing-style">Status: 
-    <%if(information.status=="ON"){%>
+    <%if(information.status=="on"){%>
         <span style="color: green" id="status" ><%=information.status%></span>
     <%}%>
-    <%if(information.status=="OFF"){%>
+    <%if(information.status=="off"){%>
         <span style="color: red" id="status"><%=information.status%></span>
     <%}%>
     </p>
-    <%if(information.isBurning=="True"){%>
-    <img src="images/flame.gif" alt="flame gif"/>
-    <%}%>
 </div>
-<div class="inline">
+ <div class="inline left">
+    <p class="writing-style">The boiler is heating now: <span id="isBurning" name="isBurning"><%=information.isBurning%></span></p>
+</div>
+<div class="inline left">
     <p class="writing-style">Actual temperature: <span id="temperature" name="temperature"><%=information.temperature%></span> &#8451;</p>
 </div>
+
 <div class="inline">
-    <%if(information.target!=0 ){%>
-    <p class="writing-style">Desired temperature: <%=information.target%> &#8451; </p>
+    <%if(information.status=="on"){%>
+    	
     <%}%>
+<p class="writing-style">Desired temperature: <span id="target" name="target"><%=information.target%> &#8451; </p>
+	
 </div>
     <div class="inline left">
         <form action="/" method="POST">
             <label for="desired_temperature">Desired temperature:</label>
-            <input type="number" name="desired_temperature" value="20" min="20" max="30">
+            <input type="number" name="desired_temperature" value="20" min="2" max="30">
             <input type="submit" onclick="Start()" class="button start" id="button_start" name="action" value="Start">
             <input type="submit" onclick="Stop()" class="button stop" id="button_stop" name="action" value="Stop">
           </form>
